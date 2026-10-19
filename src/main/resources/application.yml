@@ -1,0 +1,9 @@
+server:
+    port: 9081
+spring:
+    application:
+        name: mc-weatherdata-event-v1
+    devtools:
+        restart:
+            enabled: true
+            exclude: static/**
