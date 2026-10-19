@@ -1,5 +1,6 @@
 package org.lich.base.controller;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import org.lich.base.model.weather.WeatherData;
 import org.lich.base.service.WeatherDataService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,7 @@ public class WeatherDataController {
             return ResponseEntity.status(HttpStatus.OK).body("Ok");
     }
     @RequestMapping(path = "/v1/trigger/event", method = RequestMethod.POST)
-    public ResponseEntity<String> wdeTriggerV2(@RequestBody WeatherData weatherData){
+    public ResponseEntity<String> wdeTriggerV2(@RequestBody WeatherData weatherData) throws JsonProcessingException {
         weatherDataService.getWeatherData(weatherData);
         return ResponseEntity.status(HttpStatus.CREATED).body("Accepted");
     }
